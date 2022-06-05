@@ -3,23 +3,23 @@
  *  @author Rafael Camacho Roldán <za18012201@zapopan.tecmm.edu.mx>
  */
 public class DataSet {
-    private int particles = 17;  //Quantity of parcles in x1, x2, x3 ... Xn-1
-    private int x=3;  // Quanty of 'X' in array
+    int particles = 17;  //Quantity of parcles (population) (in xN_i, xN_i+1, xN_i+1 ... xN_i-1)
+    int x=3;  // Quanty of 'X' variables in array (x1, x2, x3 ... Xn-1)
     
     private double [][]x_values=new double [particles][x];
     private double [][]velocity=new double [particles][x];
     
-    private double []fitnessValue = new double[particles];   //Array to save the value result of the funtion using particles in x1, x2, x3 ... Xn-1
+    private double []fitnessFuntion = new double[particles];   //Array to save the value result of the funtion using particles in x1, x2, x3 ... Xn-1
     private double [][]pBest = new double[particles][x]; //Matrix to save 'Personal Best Values' values
     private double []gBest = new double[x];
-    private double minimunFitnessValue;
+    private double minFitnessValue;
 
-    public double getMinimunFitnessValue() {
-        return minimunFitnessValue;
+    public double getMinFitnessValue() {
+        return minFitnessValue;
     }
 
-    public void setMinimunFitnessValue(double minimunFitnessValue) {
-        this.minimunFitnessValue = minimunFitnessValue;
+    public void setMinFitnessValue(double minFitnessValue) {
+        this.minFitnessValue = minFitnessValue;
     }
     
     public double[] getgBest() {
@@ -55,11 +55,11 @@ public class DataSet {
         this.velocity = velocity;
     }
 
-    public double[] getFitnessValue() {
-        return fitnessValue;
+    public double[] getFitnessFuntion() {
+        return fitnessFuntion;
     }
 
-    public void setFitnessValue(double[] fitnessValue) {
-        this.fitnessValue = fitnessValue;
+    public void setFitnessFuntion(double[] fitnessFuntion) {
+        this.fitnessFuntion = fitnessFuntion;
     }
 }
