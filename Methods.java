@@ -181,10 +181,32 @@ class Methods{
 
     /*  ______________________________________________________________________________________________________________________
         STEP 4 - UPDATE 'GLOBAL BEST' AND 'PERSONAL BEST'
-        * COMPARE THE CURRENT MINIMUN FITNESS VALUE VS NEW MINIMUN FITNESS VALUE
-        ** UPDATE GLOBAL
+        * COMPARE THE CURRENT MINIMUN FITNESS VALUE VS NEW MINIMUN FITNESS VALUE AND CHOOSE THE BEST
+        ** UPDATE GLOBAL BEST
+        *** UPDATE PERSONAL BEST
      */
 
-        //* CHOOSE THE CURRENT GLOBALL BEST AND PERSONAL BEST
-            
+        //*  COMPARE THE CURRENT MINIMUN FITNESS VALUE VS NEW MINIMUN FITNESS VALUE AND CHOOSE THE BEST
+            double updateFitnessValue(double minFitnessValue, double[] fitnessFuntion){
+                for(int i=0;i<fitnessFuntion.length;i++){
+                    if(fitnessFuntion[i] < minFitnessValue){
+                        minFitnessValue=fitnessFuntion[i];
+                    }
+                }
+                return minFitnessValue;
+            }
+        //*** UPDATE PERSONAL BEST
+            double[][] updatePBest(double [][]x_position, double[][]pBest, double []fitnessFuntion, double []currentFitnessFuntion){
+                for(int row=0;row<fitnessFuntion.length;row++){
+                        if(currentFitnessFuntion[row]<fitnessFuntion[row]){
+                            for(int column=0;column<pBest[0].length;column++){
+                                pBest[row][column]=x_position[row][column];
+                            }
+                        }
+                }
+                return pBest;
+            }
+    /*
+    *   END OF STEP 4 - UPDATE 'GLOBAL BEST' AND 'PERSONAL BEST'
+    */ 
 }
